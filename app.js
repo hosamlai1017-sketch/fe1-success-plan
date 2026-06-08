@@ -188,10 +188,26 @@ editableCalendarItems.forEach((item) => {
 
 const editablePageItems = Array.from(document.querySelectorAll("[data-page-editable-id]"));
 const pageStoragePrefix = "fe1-page-editable:";
+const pageEditableDefaultUpdates = new Map([
+  ["training-track-1-item-1", { from: "Align with mentor/FLL", to: "Align with mentor / FLL" }],
+  ["training-track-1-item-2", { from: "Identify active opportunities", to: "Identify active opportunities by checking with the SuccessFactors team regularly" }],
+  ["training-track-1-item-3", { from: "Build stakeholder list across Sales, SA, CSM, Services", to: "Maintain KPI tracker and reflection log" }],
+  ["training-track-2-item-1", { from: "Ask Sales / SA / CSM whether I can join meetings", to: "Shadow meetings with Sales / SA / CSM where possible" }],
+  ["training-track-2-item-2", { from: "Join internal account planning calls when possible", to: "Join internal account planning calls" }],
+  ["training-track-3-item-2", { from: "Practice SuccessFactors demo flow independently", to: "Practice the SuccessFactors demo flow independently" }],
+  ["training-track-4-item-2", { from: "Draft RFx/RFP sections", to: "Co-work RFx / RFP sections" }],
+  ["training-track-4-item-3", { from: "Prepare demo scripts", to: "Support demo preparation" }]
+]);
 
 editablePageItems.forEach((item) => {
   const key = `${pageStoragePrefix}${item.dataset.pageEditableId}`;
-  const savedValue = localStorage.getItem(key);
+  let savedValue = localStorage.getItem(key);
+  const defaultUpdate = pageEditableDefaultUpdates.get(item.dataset.pageEditableId);
+
+  if (savedValue !== null && defaultUpdate && savedValue.trim() === defaultUpdate.from) {
+    savedValue = defaultUpdate.to;
+    localStorage.setItem(key, savedValue);
+  }
 
   if (savedValue !== null) {
     item.innerHTML = savedValue;
