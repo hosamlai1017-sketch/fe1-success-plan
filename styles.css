@@ -642,6 +642,161 @@ img {
   font-size: 1.08rem;
 }
 
+.objectives-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.objectives-section::after {
+  content: "\67D4\9053";
+  position: absolute;
+  top: clamp(3.5rem, 7vw, 5.5rem);
+  right: clamp(0.8rem, 5vw, 4rem);
+  z-index: 0;
+  color: rgba(8, 11, 19, 0.08);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(6rem, 15vw, 13rem);
+  font-weight: 900;
+  line-height: 0.8;
+  writing-mode: vertical-rl;
+  pointer-events: none;
+}
+
+.objectives-heading,
+.objectives-list {
+  position: relative;
+  z-index: 1;
+}
+
+.objectives-heading {
+  max-width: 980px;
+  margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.objectives-heading h2 {
+  margin: 0.35rem 0 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 6.8rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.objectives-heading p:not(.section-label) {
+  position: relative;
+  margin-top: 1.4rem;
+  color: var(--ink-soft);
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  line-height: 1.2;
+}
+
+.objectives-heading p:not(.section-label)::before {
+  content: "";
+  display: block;
+  width: min(15rem, 48vw);
+  height: 0.28rem;
+  margin-bottom: 1rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), rgba(199, 162, 70, 0));
+}
+
+.objectives-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 1120px;
+  margin-left: auto;
+}
+
+.objective-row {
+  --objective-depth: #07182f;
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.16fr) minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: 5.65rem;
+  overflow: hidden;
+  border: 1px solid rgba(8, 11, 19, 0.16);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.97), rgba(255, 250, 240, 0.88)),
+    var(--surface);
+  box-shadow: 7px 7px 0 rgba(8, 11, 19, 0.045), var(--soft-shadow);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.objective-row:hover {
+  transform: translateY(-4px);
+  border-color: var(--ink);
+  box-shadow: 10px 10px 0 rgba(184, 135, 24, 0.16), var(--shadow);
+}
+
+.objective-number {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-self: stretch;
+  min-height: 100%;
+  padding: 0 1rem;
+  color: #fffdf7;
+  background:
+    linear-gradient(110deg, var(--ink) 0 72%, var(--gold) 72% 86%, transparent 86%);
+  font-size: clamp(1.8rem, 3vw, 2.75rem);
+  font-weight: 950;
+  letter-spacing: 0.02em;
+}
+
+.objective-row h3 {
+  margin: 0;
+  padding: 1rem 1.4rem;
+  color: var(--ink);
+  font-family: Impact, "Arial Black", Inter, Arial, sans-serif;
+  font-size: clamp(1.45rem, 3vw, 3rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.focus-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 7.4rem;
+  min-height: 2.9rem;
+  margin-right: 1rem;
+  padding: 0 1.15rem;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  color: var(--ink);
+  background: rgba(255, 253, 247, 0.9);
+  box-shadow: 0 4px 0 rgba(8, 11, 19, 0.18), inset 0 -4px 0 rgba(199, 162, 70, 0.18);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.focus-badge::before,
+.focus-badge::after {
+  content: "";
+  position: absolute;
+  bottom: -1.15rem;
+  width: 0.35rem;
+  height: 1.8rem;
+  border: 1px solid rgba(8, 11, 19, 0.32);
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, var(--ink) 0 36%, var(--gold) 36% 64%, var(--ink) 64%);
+}
+
+.focus-badge::before {
+  left: 38%;
+  transform: rotate(42deg);
+}
+
+.focus-badge::after {
+  right: 38%;
+  transform: rotate(-42deg);
+}
+
 .mission-grid,
 .track-grid,
 .swot-grid,
@@ -1792,6 +1947,30 @@ li + li {
 
   .hero-copy h1 {
     font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+
+  .objectives-section::after {
+    opacity: 0.65;
+    right: 0;
+  }
+
+  .objectives-list {
+    margin-left: 0;
+  }
+
+  .objective-row {
+    grid-template-columns: minmax(5.4rem, 0.24fr) minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .objective-row h3 {
+    padding: 1rem;
+  }
+
+  .focus-badge {
+    grid-column: 2;
+    justify-self: start;
+    margin: 0 1rem 1rem;
   }
 
   .mission-grid,
@@ -3846,6 +4025,21 @@ h3 {
 }
 
 @media (max-width: 680px) {
+  .objective-row {
+    grid-template-columns: 1fr;
+  }
+
+  .objective-number {
+    justify-content: start;
+    min-height: 3.4rem;
+    background:
+      linear-gradient(110deg, var(--ink) 0 42%, var(--gold) 42% 50%, transparent 50%);
+  }
+
+  .focus-badge {
+    grid-column: 1;
+  }
+
   .swot-card-top {
     grid-template-columns: auto minmax(0, 1fr);
   }
