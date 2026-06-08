@@ -3118,12 +3118,13 @@ h3 {
 
 .field-opportunity-cards .opportunity-card-header {
   display: grid;
-  grid-template-columns: 3.25rem minmax(0, 1fr) 2.1rem;
-  gap: 0.9rem;
+  grid-template-columns: 3.25rem minmax(0, 1fr) 2.15rem;
+  column-gap: 1.08rem;
+  row-gap: 0;
   align-items: center;
-  min-height: 7.15rem;
-  height: 7.15rem;
-  padding: 1.05rem 1.15rem;
+  min-height: 8.75rem;
+  height: 8.75rem;
+  padding: 1.15rem 1.2rem;
   color: var(--surface-strong);
   background:
     repeating-linear-gradient(35deg, rgba(255, 255, 255, 0.09) 0 1px, transparent 1px 14px),
@@ -3133,6 +3134,12 @@ h3 {
   font-weight: inherit;
   text-transform: none;
   user-select: none;
+}
+
+.field-opportunity-cards .opportunity-card-header > div {
+  min-width: 0;
+  padding-left: 0.18rem;
+  padding-right: 0.25rem;
 }
 
 .field-opportunity-cards .opportunity-card-header::-webkit-details-marker {
@@ -3197,6 +3204,8 @@ h3 {
 .field-opportunity-cards .opportunity-toggle {
   display: grid;
   margin-top: 0;
+  align-self: center;
+  justify-self: end;
   color: var(--surface-strong);
   font-size: inherit;
 }
@@ -3222,20 +3231,30 @@ h3 {
 .opportunity-card-header h4 {
   margin: 0;
   color: var(--surface-strong);
-  font-size: clamp(1.04rem, 1.35vw, 1.36rem);
-  line-height: 1.1;
+  overflow-wrap: anywhere;
+  font-size: clamp(1.02rem, 1.18vw, 1.28rem);
+  line-height: 1.08;
+}
+
+.opportunity-card-header h4.opportunity-title-long {
+  font-size: clamp(0.98rem, 1.08vw, 1.16rem);
+  line-height: 1.06;
 }
 
 .opportunity-card-header p {
   margin-top: 0.18rem;
   color: rgba(255, 253, 247, 0.9);
+  max-width: 100%;
+  font-size: 0.82rem;
   font-weight: 800;
-  line-height: 1.18;
+  line-height: 1.12;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .opportunity-card-body {
   flex: 1 1 auto;
-  padding: 1rem 1.15rem 1.15rem;
+  padding: 1.18rem 1.15rem 1.15rem;
   animation: opportunityDrop 220ms ease;
 }
 
@@ -4081,12 +4100,16 @@ h3 {
 
   .opportunity-card-header {
     grid-template-columns: 2.85rem minmax(0, 1fr) 2rem;
-    min-height: 0;
+    min-height: 6.8rem;
+    height: auto;
+    padding: 1rem;
   }
 
   .field-opportunity-cards .opportunity-card-header {
     grid-template-columns: 2.85rem minmax(0, 1fr) 2rem;
-    min-height: 0;
+    min-height: 6.8rem;
+    height: auto;
+    padding: 1rem;
   }
 
   .opportunity-mark {
