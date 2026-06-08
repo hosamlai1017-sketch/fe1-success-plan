@@ -1609,7 +1609,8 @@ li + li {
 }
 
 .calendar-cell {
-  padding: 0.9rem;
+  overflow: hidden;
+  padding: 0.95rem 0.85rem 0.85rem;
 }
 
 .calendar-cell::before {
@@ -1623,20 +1624,22 @@ li + li {
 .activity {
   --activity-marker: var(--activity-add-activity);
   position: relative;
-  min-height: 1.7rem;
-  padding-left: 1.55rem;
+  min-height: 1.6rem;
+  padding-left: 1.45rem;
   color: var(--ink);
+  font-family: inherit;
+  overflow-wrap: anywhere;
 }
 
 .activity::before {
   content: "";
   position: absolute;
-  top: 0.13rem;
+  top: 0.16rem;
   left: 0;
-  width: 0.92rem;
-  height: 0.92rem;
+  width: 0.82rem;
+  height: 0.82rem;
   border: 1px solid rgba(255, 253, 247, 0.8);
-  border-radius: 0.32rem;
+  border-radius: 0.26rem;
   background: var(--activity-marker);
   box-shadow: 0 0 0 1px rgba(8, 11, 19, 0.08), 0 4px 8px rgba(8, 11, 19, 0.1);
 }
@@ -1665,16 +1668,17 @@ li + li {
 .activity.empty {
   --activity-marker: var(--activity-add-activity);
   color: rgba(104, 116, 138, 0.72);
+  opacity: 0.68;
 }
 
 .activity + .activity {
-  margin-top: 0.7rem;
-  padding-top: 0.7rem;
+  margin-top: 0.62rem;
+  padding-top: 0.62rem;
   border-top: 1px solid rgba(8, 11, 19, 0.1);
 }
 
 .activity + .activity::before {
-  top: 0.83rem;
+  top: 0.78rem;
 }
 
 .activity strong,
@@ -1682,7 +1686,8 @@ li + li {
   display: block;
   margin: 0;
   color: var(--ink);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
+  font-weight: 850;
   line-height: 1.2;
 }
 
@@ -1695,14 +1700,20 @@ li + li {
 .activity ul,
 .calendar-cell p,
 .calendar-cell ul {
-  margin-top: 0.4rem;
+  margin-top: 0.34rem;
   color: var(--ink);
-  font-size: 0.86rem;
+  font-size: 0.78rem;
+  line-height: 1.32;
 }
 
 .activity ul,
 .calendar-cell ul {
-  padding-left: 1rem;
+  padding-left: 0.95rem;
+}
+
+.activity li + li,
+.calendar-cell li + li {
+  margin-top: 0.18rem;
 }
 
 .legend-client {

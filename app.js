@@ -141,6 +141,17 @@ document.querySelectorAll(".opportunity-card").forEach((card) => {
 const editableCalendarItems = Array.from(document.querySelectorAll("[data-editable-id]"));
 const calendarStatus = document.getElementById("calendarStatus");
 const storagePrefix = "fe1-calendar:";
+const calendarDefaultVersionKey = `${storagePrefix}default-version`;
+const calendarDefaultVersion = "week-shift-2026-06-09";
+
+if (localStorage.getItem(calendarDefaultVersionKey) !== calendarDefaultVersion) {
+  editableCalendarItems
+    .filter((item) => item.classList.contains("calendar-cell"))
+    .forEach((item) => {
+      localStorage.removeItem(`${storagePrefix}${item.dataset.editableId}`);
+    });
+  localStorage.setItem(calendarDefaultVersionKey, calendarDefaultVersion);
+}
 
 function setCalendarStatus(message) {
   if (!calendarStatus) return;
