@@ -3288,11 +3288,37 @@ h3 {
   font-weight: 950;
 }
 
-.opportunity-note p {
+.opportunity-note p,
+.opportunity-note li {
   margin: 0;
   color: var(--ink);
-  font-size: 0.98rem;
-  line-height: 1.38;
+  font-size: 0.92rem;
+  line-height: 1.32;
+}
+
+.opportunity-note ul {
+  display: grid;
+  gap: 0.42rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.opportunity-note li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.opportunity-note li::before {
+  content: "";
+  position: absolute;
+  top: 0.58em;
+  left: 0;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: var(--opp-accent);
+  box-shadow: 0 0 0 3px rgba(184, 135, 24, 0.1);
 }
 
 .learning-note h5 {
