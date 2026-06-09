@@ -4528,3 +4528,326 @@ h3 {
     text-align: left;
   }
 }
+
+.fesp-overview-section {
+  width: min(calc(100% - 24px), 1440px);
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+
+.overview-slide {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(30rem, 54vw, 48rem);
+  display: grid;
+  align-content: space-between;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(2rem, 5vw, 4.6rem);
+  border: 1px solid rgba(8, 11, 19, 0.14);
+  border-radius: 28px;
+  background:
+    linear-gradient(90deg, rgba(255, 251, 241, 0.92), rgba(248, 241, 225, 0.82)),
+    repeating-linear-gradient(90deg, rgba(8, 11, 19, 0.025) 0 1px, transparent 1px 60px);
+  box-shadow: 14px 14px 0 rgba(184, 135, 24, 0.12), var(--soft-shadow);
+}
+
+.overview-slide::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 18%;
+  background:
+    repeating-linear-gradient(90deg, rgba(184, 135, 24, 0.18) 0 2px, transparent 2px 8.5rem),
+    linear-gradient(180deg, transparent, rgba(184, 135, 24, 0.08));
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.overview-topline {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  color: var(--gold);
+}
+
+.overview-kanji {
+  writing-mode: vertical-rl;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0.08em;
+}
+
+.overview-rule {
+  width: 2px;
+  height: clamp(3.8rem, 7vw, 6rem);
+  background: var(--gold);
+}
+
+.overview-topline p {
+  margin: 0;
+  color: var(--gold);
+  font-size: clamp(1rem, 2vw, 1.7rem);
+  font-weight: 950;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.overview-title-row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.36fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.overview-title-row h2 {
+  max-width: 980px;
+  margin: 0;
+  color: var(--ink);
+  font-family: Impact, "Arial Black", Inter, Arial, sans-serif;
+  font-size: clamp(4rem, 11vw, 9rem);
+  line-height: 0.86;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.overview-brush {
+  display: block;
+  width: min(12rem, 42vw);
+  height: 0.72rem;
+  margin-top: clamp(1.1rem, 2vw, 1.8rem);
+  border-radius: 999px 45% 70% 999px;
+  background:
+    linear-gradient(90deg, transparent 0 4%, var(--gold) 7% 82%, transparent 100%);
+  transform: skewX(-14deg);
+}
+
+.overview-badge {
+  position: absolute;
+  top: clamp(-1.2rem, -1vw, -0.4rem);
+  right: clamp(0.2rem, 1vw, 0.8rem);
+  display: grid;
+  place-items: center;
+  width: clamp(3.4rem, 6vw, 5rem);
+  aspect-ratio: 1;
+  border: 0.22rem solid var(--gold);
+  clip-path: polygon(50% 0, 92% 24%, 92% 76%, 50% 100%, 8% 76%, 8% 24%);
+  opacity: 0.82;
+}
+
+.overview-badge i,
+.overview-badge i::before,
+.overview-badge i::after {
+  display: block;
+  background: var(--gold);
+}
+
+.overview-badge i {
+  position: relative;
+  width: 1.8rem;
+  height: 0.55rem;
+  border-radius: 999px;
+}
+
+.overview-badge i::before,
+.overview-badge i::after {
+  content: "";
+  position: absolute;
+  top: 0.28rem;
+  width: 1.45rem;
+  height: 0.34rem;
+  border-radius: 999px;
+}
+
+.overview-badge i::before {
+  left: -0.55rem;
+  transform: rotate(43deg);
+}
+
+.overview-badge i::after {
+  right: -0.55rem;
+  transform: rotate(-43deg);
+}
+
+.overview-dojo-visual {
+  position: relative;
+  min-height: clamp(16rem, 28vw, 24rem);
+  opacity: 0.58;
+}
+
+.enso-ring {
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: min(25rem, 100%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 58%, rgba(184, 135, 24, 0.12) 59% 63%, transparent 64%),
+    conic-gradient(from 20deg, transparent 0 12%, rgba(8, 11, 19, 0.1) 15% 24%, transparent 30% 38%, rgba(184, 135, 24, 0.16) 44% 55%, transparent 61% 100%);
+  filter: blur(0.2px);
+}
+
+.seated-judoka {
+  position: absolute;
+  right: clamp(2rem, 5vw, 4rem);
+  bottom: clamp(0.8rem, 2vw, 1.5rem);
+  width: clamp(5rem, 10vw, 8rem);
+  height: clamp(8rem, 15vw, 12rem);
+}
+
+.seated-judoka::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: rgba(7, 24, 47, 0.42);
+  transform: translateX(-50%);
+  box-shadow: 0 1.8rem 0 1.2rem rgba(255, 255, 255, 0.78), 0 4rem 0 1.8rem rgba(255, 255, 255, 0.72);
+}
+
+.seated-judoka::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.6rem;
+  width: 7.2rem;
+  height: 2rem;
+  border-radius: 50% 50% 28% 28%;
+  border-bottom: 0.55rem solid rgba(7, 24, 47, 0.34);
+  background: rgba(255, 255, 255, 0.55);
+  transform: translateX(-50%);
+}
+
+.overview-agenda {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: end;
+  gap: 0;
+}
+
+.overview-agenda article {
+  min-height: clamp(13rem, 16vw, 14rem);
+  display: grid;
+  align-content: end;
+  justify-items: center;
+  gap: 0.75rem;
+  padding: 0 clamp(0.7rem, 1.3vw, 1.2rem);
+  text-align: center;
+}
+
+.overview-agenda article + article {
+  border-left: 2px solid rgba(184, 135, 24, 0.7);
+}
+
+.overview-agenda span {
+  display: grid;
+  place-items: center;
+  width: clamp(3.7rem, 6vw, 5.2rem);
+  aspect-ratio: 1;
+  border: 2px solid rgba(184, 135, 24, 0.68);
+  border-radius: 50%;
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.52);
+}
+
+.overview-agenda h3 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Impact, "Arial Black", Inter, Arial, sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.9rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1050px) {
+  .overview-title-row {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-dojo-visual {
+    position: absolute;
+    right: 1.5rem;
+    top: 6rem;
+    width: min(22rem, 44vw);
+    min-height: 18rem;
+    opacity: 0.26;
+  }
+
+  .overview-agenda {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem 0;
+  }
+
+  .overview-agenda article:nth-child(4) {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .fesp-overview-section {
+    width: min(calc(100% - 24px), var(--max));
+  }
+
+  .overview-slide {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .overview-topline {
+    align-items: flex-start;
+  }
+
+  .overview-topline p {
+    letter-spacing: 0.18em;
+  }
+
+  .overview-title-row h2 {
+    font-size: clamp(3.2rem, 17vw, 5rem);
+  }
+
+  .overview-dojo-visual {
+    display: none;
+  }
+
+  .overview-badge {
+    position: relative;
+    top: auto;
+    right: auto;
+    justify-self: start;
+  }
+
+  .overview-agenda {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .overview-agenda article {
+    min-height: auto;
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: start;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 0;
+    border-left: 0 !important;
+    border-top: 1px solid rgba(184, 135, 24, 0.42);
+    text-align: left;
+  }
+
+  .overview-agenda span {
+    width: 3.4rem;
+    font-size: 2rem;
+  }
+}
