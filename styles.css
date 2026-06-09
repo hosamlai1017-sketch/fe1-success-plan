@@ -610,6 +610,36 @@ img {
   font-size: 0.78rem;
 }
 
+.console-brand-statement {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.console-brand-statement span,
+.console-brand-statement strong {
+  display: block;
+}
+
+.console-brand-statement span {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.console-brand-statement strong {
+  margin-top: 0.45rem;
+  color: var(--ink);
+  font-size: clamp(1rem, 1.55vw, 1.28rem);
+  line-height: 1.18;
+}
+
 .section-block {
   width: min(calc(100% - 32px), var(--max));
   margin: 0 auto;
