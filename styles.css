@@ -4397,6 +4397,12 @@ h3 {
   letter-spacing: 0.04em;
 }
 
+.foundational-panel .skill-panel-heading h3,
+.foundational-panel .skill-panel-heading h3:focus,
+.foundational-panel .skill-panel-heading h3.site-editable {
+  color: #fff;
+}
+
 .skill-table {
   overflow: hidden;
   border: 1px solid rgba(8, 11, 19, 0.12);
