@@ -197,8 +197,81 @@ editableCalendarItems.forEach((item) => {
   });
 });
 
-const editablePageItems = Array.from(document.querySelectorAll("[data-page-editable-id]"));
 const pageStoragePrefix = "fe1-page-editable:";
+
+function editableDomPath(element) {
+  const parts = [];
+  let current = element;
+
+  while (current && current !== document.body) {
+    const parent = current.parentElement;
+    if (!parent) break;
+
+    const sameTagSiblings = Array.from(parent.children).filter(
+      (child) => child.tagName === current.tagName
+    );
+    const index = sameTagSiblings.indexOf(current) + 1;
+    parts.unshift(`${current.tagName.toLowerCase()}:nth-of-type(${index})`);
+    current = parent;
+  }
+
+  return parts.join(">");
+}
+
+function shouldAutoRegisterEditable(element) {
+  const text = element.textContent.trim();
+
+  return (
+    text &&
+    !element.dataset.pageEditableId &&
+    !element.dataset.editableId &&
+    !element.closest("[data-page-editable-id]") &&
+    !element.closest("[data-editable-id]") &&
+    !element.closest(".site-nav") &&
+    !element.closest(".hero-actions") &&
+    !element.closest(".calendar-tools") &&
+    !element.closest(".mat-intro") &&
+    !element.closest("button") &&
+    !element.closest("script, style")
+  );
+}
+
+const autoEditableSelector = [
+  ".brand-mark",
+  ".brand strong",
+  ".brand small",
+  "main h1",
+  "main h2",
+  "main h3",
+  "main h4",
+  "main h5",
+  "main p",
+  "main li",
+  "main blockquote",
+  "main span",
+  "main strong",
+  "main small",
+  ".objective-number",
+  ".focus-badge",
+  ".stage-badge",
+  ".track-card-number",
+  ".score-tag",
+  ".tape-label",
+  ".opportunity-mark",
+  ".account-pills span",
+  ".belt",
+  "footer p"
+].join(",");
+
+document.querySelectorAll(autoEditableSelector).forEach((element) => {
+  if (!shouldAutoRegisterEditable(element)) return;
+  element.dataset.pageEditableId = `auto:${editableDomPath(element)}`;
+  element.classList.add("site-editable");
+  element.setAttribute("contenteditable", "true");
+  element.setAttribute("spellcheck", "true");
+});
+
+const editablePageItems = Array.from(document.querySelectorAll("[data-page-editable-id]"));
 const pageEditableDefaultUpdates = new Map([
   ["training-track-1-item-1", { from: "Align with mentor/FLL", to: "Align with mentor / FLL" }],
   ["training-track-1-item-2", { from: "Identify active opportunities", to: "Identify active opportunities by checking with the SuccessFactors team regularly" }],

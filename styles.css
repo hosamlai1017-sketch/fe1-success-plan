@@ -1558,8 +1558,30 @@ li + li {
   cursor: text;
 }
 
+.site-editable {
+  border-radius: 0.35rem;
+  cursor: text;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.site-editable:hover {
+  background: rgba(255, 248, 229, 0.38);
+  box-shadow: inset 0 -2px 0 rgba(184, 135, 24, 0.2);
+}
+
+.site-editable:focus {
+  outline: none;
+  background: rgba(255, 248, 229, 0.74);
+  box-shadow: 0 0 0 3px rgba(184, 135, 24, 0.16), inset 0 -2px 0 rgba(184, 135, 24, 0.34);
+}
+
 .editable-training-section .section-heading [contenteditable="true"] {
   padding: 0.05rem 0.18rem;
+}
+
+.opportunity-card-header .site-editable,
+.track-dropdown-card summary .site-editable {
+  min-width: 0;
 }
 
 .track-dropdown-card summary [contenteditable="true"] {
