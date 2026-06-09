@@ -142,7 +142,7 @@ const editableCalendarItems = Array.from(document.querySelectorAll("[data-editab
 const calendarStatus = document.getElementById("calendarStatus");
 const storagePrefix = "fe1-calendar:";
 const calendarDefaultVersionKey = `${storagePrefix}default-version`;
-const calendarDefaultVersion = "july-self-learning-moves-2026-06-09";
+const calendarDefaultVersion = "june-july-calendar-grid-2026-06-09";
 
 if (localStorage.getItem(calendarDefaultVersionKey) !== calendarDefaultVersion) {
   editableCalendarItems
